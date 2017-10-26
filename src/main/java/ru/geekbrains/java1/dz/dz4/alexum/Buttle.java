@@ -1,4 +1,4 @@
-package ru.geekbrains.java1.dz4.alexum;
+package ru.geekbrains.java1.dz.dz4.alexum;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -8,15 +8,12 @@ import java.util.Scanner;
  */
 public class Buttle {
 
-    public static final int DOTS_TO_WIN = 3;
-
-
     public static final char DOT_EMPTY = '*';
     public static final char DOT_X = 'X';
     public static final char DOT_O = 'O';
 
     public static class ButtleField {
-        private static final int WIN_SIZE = 4;
+        private static final int DOTS_TO_WIN = 4;
         public static char[][] field;
         public static final int SIZE = 5;
 
@@ -80,13 +77,13 @@ public class Buttle {
                 for (int j = 0; j < SIZE; j++) {
                     iWin = field[i][j] == dot ? iWin + 1 : 0;
                     jWin = field[j][i] == dot ? jWin + 1 : 0;
-                    if (iWin == WIN_SIZE || jWin == WIN_SIZE) {
+                    if (iWin == DOTS_TO_WIN || jWin == DOTS_TO_WIN) {
                         return true;
                     }
 
                     mainDiagWin = field[j][j] == dot ? mainDiagWin + 1 : 0;
                     secondDiagWin = field[j][SIZE - (j + 1)] == dot ? secondDiagWin + 1 : 0;
-                    if (mainDiagWin == WIN_SIZE || secondDiagWin == WIN_SIZE) {
+                    if (mainDiagWin == DOTS_TO_WIN || secondDiagWin == DOTS_TO_WIN) {
                         return true;
                     }
                 }
