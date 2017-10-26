@@ -31,7 +31,7 @@ public class Buttle {
         public void initMe() {
             field = new char[SIZE][SIZE];
 
-            for (int i = 0; i <SIZE; i++) {
+            for (int i = 0; i < SIZE; i++) {
                 for (int j = 0; j < SIZE; j++) {
                     field[i][j] = DOT_EMPTY;
                 }
@@ -72,21 +72,21 @@ public class Buttle {
         }
 
         public boolean checkWin(char dot) {
-            int iWin = 0;
-            int jWin = 0;
             for (int i = 0; i < SIZE; i++) {
+                int iWin = 0;
+                int jWin = 0;
+                int mainDiagWin = 0;
+                int secondDiagWin = 0;
                 for (int j = 0; j < SIZE; j++) {
-                    if (field[i][j] == dot) {
-                        iWin++;
-                    } else {
-                        iWin = 0;
-                    }
-                    if (field[j][i] == dot) {
-                        jWin++;
-                    } else {
-                        jWin = 0;
-                    }
+                    iWin = field[i][j] == dot ? iWin + 1 : 0;
+                    jWin = field[j][i] == dot ? jWin + 1 : 0;
                     if (iWin == WIN_SIZE || jWin == WIN_SIZE) {
+                        return true;
+                    }
+
+                    mainDiagWin = field[j][j] == dot ? mainDiagWin + 1 : 0;
+                    secondDiagWin = field[j][SIZE - (j + 1)] == dot ? secondDiagWin + 1 : 0;
+                    if (mainDiagWin == WIN_SIZE || secondDiagWin == WIN_SIZE) {
                         return true;
                     }
                 }
@@ -128,13 +128,13 @@ public class Buttle {
         }
 
         private void aiTurn(ButtleField field) {
-            int   x, y;
+            int x, y;
             Random rand = new Random();
             do {
                 x = rand.nextInt(ButtleField.SIZE);
                 y = rand.nextInt(ButtleField.SIZE);
             } while (!ButtleField.isCellValid(x, y));
-            System.out.println("AI went to [" + x + ", " + "]");
+            System.out.println("AI went to [" + x + ", " + y + "]");
 
             field.setO(x, y);
         }
