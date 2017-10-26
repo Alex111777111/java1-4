@@ -16,9 +16,9 @@ public class Buttle {
     public static final char DOT_O = 'O';
 
     public static class ButtleField {
-        private static final int WIN_SIZE = 3;
+        private static final int WIN_SIZE = 4;
         public static char[][] field;
-        public static final int SIZE = 3;
+        public static final int SIZE = 5;
 
         public void setX(int x, int y) {
             field[x][y] = DOT_X;
