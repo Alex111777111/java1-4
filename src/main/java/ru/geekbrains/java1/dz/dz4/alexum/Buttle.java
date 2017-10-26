@@ -136,6 +136,18 @@ public class Buttle {
             field.setO(x, y);
         }
 
+        private void aiTurnPro(ButtleField field) {
+            int x, y;
+            Random rand = new Random();
+            do {
+                x = rand.nextInt(ButtleField.SIZE);
+                y = rand.nextInt(ButtleField.SIZE);
+            } while (!ButtleField.isCellValid(x, y));
+            System.out.println("AI went to [" + x + ", " + y + "]");
+
+            field.setO(x, y);
+        }
+
         private void humanTurn(ButtleField field) {
             int x, y;
             do {
