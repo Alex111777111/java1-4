@@ -136,6 +136,10 @@ public class Buttle {
             field.setO(x, y);
         }
 
+        /**
+         * Написать умный ии - чтобы блокировал ходы ползователя
+         * @param field
+         */
         private void aiTurnPro(ButtleField field) {
             int x, y;
             Random rand = new Random();
