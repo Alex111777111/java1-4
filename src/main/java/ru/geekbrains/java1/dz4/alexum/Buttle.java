@@ -122,6 +122,7 @@ public class Buttle {
                     System.out.println("Ничья");
                     break;
                 }
+
             }
             System.out.println("Game over!");
         }
